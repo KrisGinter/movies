@@ -1,25 +1,21 @@
+import React, {useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+const App = () => {
+const [data, setData] = useState(false);
+useEffect(() => {
+  fetch('https://api.watchmode.com/v1/sources/?apiKey=E1pn6G0f4xL5kwMux4bjDlLUzv02lBB1EgI4gt1U')
+      .then((r) => r.json())
+      .then((res) => {
+          console.log(res)
+        setData(res);
+      })
+      .catch((err) => {
+        console.log('Error', err);
+      });
+}, []);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+return null
 }
 
 export default App;
