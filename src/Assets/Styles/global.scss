@@ -1,0 +1,22 @@
+@use "./variables.scss";
+
+.container {
+  width: 1352px;
+  margin: auto;
+}
+
+body {
+  display: block;
+  font-size: 16px;
+
+}
+
+.button {
+
+  background-color: variables.$color-primary;
+  color: variables.$color-white;
+  text-decoration: none;
+  font-family: variables.$text-bold;
+  border-radius: 20px;
+  border: none;
+}

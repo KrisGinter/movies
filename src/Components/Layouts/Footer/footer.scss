@@ -1,0 +1,51 @@
+@use "../../../Assets/Styles/variables.scss";
+
+.footer {
+  margin-top: 50px;
+  box-shadow: 0 -3px 6px #00000029;
+}
+
+.footer__text {
+  p {
+    margin: 0;
+  }
+}
+
+.footer .container{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  align-items: center;
+}
+
+
+.footer__logo {
+  font-family: variables.$logo-font;
+  color: variables.$color-primary;
+  font-weight: 300;
+  font-size: 32px;
+  padding: 16px 136px;
+  margin-top: 1px;
+  @media screen and (max-width: 768px) {
+    padding: 16px 10px;
+  }
+}
+
+.footer__copyright {
+  color: variables.$color-grey;
+  font-size: 11px;
+  font-family: "Open Sans", sans-serif;
+  padding: 5px 136px;
+  @media screen and (max-width: 768px) {
+    padding: 0px 10px;
+  }
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+  margin-right: 100px;
+  @media screen and (max-width: 768px) {
+    margin-right: 710px;
+  }
+}

@@ -1,0 +1,111 @@
+@use "../../../Assets/Styles/variables.scss";
+
+.header {
+  background: variables.$color-white;
+  box-shadow: 0 3px 6px #00000029;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+
+
+
+.header__name {
+  font-family: variables.$logo-font;
+  color: variables.$color-primary;
+  font-weight: 300;
+  font-size: 38px;
+  padding: 16px 136px;
+  margin-top: 1px;
+  @media screen and (max-width: 768px) {
+    padding: 16px 10px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.header__menu {
+  margin-top: 1px;
+  display: flex;
+  padding-right: 136px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.header__menu .header__link {
+  text-decoration: none;
+  color: variables.$color-grey;
+  padding: 27px 15px;
+  font-family: variables.$text-font;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+
+}
+
+.header__link:hover {
+  color: variables.$color-black;
+}
+
+.header__link:hover::before {
+  content: "";
+  background-color: variables.$color-primary;
+  width: 80%;
+  height: 3px;
+  top: 100%;
+  left: 12%;
+  position: absolute;
+
+}
+
+.hamburger {
+  font-size: 30px;
+  position: relative;
+  color: variables.$color-primary;
+  padding-right: 30px;
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.fa-solid {
+  font-size: 30px;
+  color: variables.$color-primary;
+}
+
+
+.label {
+  display: flex;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked ~ .header__menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: variables.$color-white;
+  width: 100vw;
+  box-shadow: 0 3px 6px #00000029;
+}
+
+.checkbox:checked ~ .header__menu .header__link {
+  font-size: 0.8em;
+}
+
+.checkbox:checked ~ .header__menu .header__link:hover::before {
+  display: none;
+}

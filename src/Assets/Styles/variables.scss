@@ -1,0 +1,45 @@
+$color-primary: #ff0000;
+$color-primary-shadow: rgba(7, 172, 230, .16);
+$color-redish: #FB3B64;
+$color-green: #55DFB4;
+$color-black: #000000;
+$color-grey: #A5A5A5;
+$color-light-grey: #F7F7F7;
+$color-white: #FFFFFF;
+
+$logo-font: 'vt323regular', sans-serif;
+$text-font: 'robotoregular', sans-serif;
+$text-bold: 'robotobold', sans-serif;
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: 'vt323regular';
+  src: url('../Fonts/vt323-regular-webfont.woff2') format('woff2'),
+  url('../Fonts/vt323-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold';
+  src: url('../Fonts/roboto-bold-webfont.woff2') format('woff2'),
+  url('../Fonts/roboto-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../Fonts/roboto-regular-webfont.woff2') format('woff2'),
+  url('../Fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}

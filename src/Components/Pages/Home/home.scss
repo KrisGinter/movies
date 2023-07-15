@@ -1,0 +1,30 @@
+@use "../../../Assets/Styles/variables.scss";
+
+.background {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+.home .container {
+  text-align: center;
+  font-family: variables.$text-font;
+  max-width: 100vw;
+}
+
+.home__headline {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.home__text {
+  margin-bottom: 50px;
+}
+
+.button__home {
+  padding: 10px 40px;
+  font-size: 30px;
+}

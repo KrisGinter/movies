@@ -1,21 +1,33 @@
 import React, {useEffect, useState } from 'react';
 import logo from './logo.svg';
+import {
+    HashRouter,
+    Route,
+    Routes,
+    Link,
+    NavLink,
+    Outlet
+} from 'react-router-dom';
 import './App.css';
-const App = () => {
-const [data, setData] = useState(false);
-useEffect(() => {
-  fetch('https://api.watchmode.com/v1/sources/?apiKey=E1pn6G0f4xL5kwMux4bjDlLUzv02lBB1EgI4gt1U')
-      .then((r) => r.json())
-      .then((res) => {
-          console.log(res)
-        setData(res);
-      })
-      .catch((err) => {
-        console.log('Error', err);
-      });
-}, []);
+import Home from "./Components/Pages/Home/Home";
+import Search from "./Components/Pages/Search/Search";
+import Favourites from "./Components/Pages/Favourites/Favourites";
+import Contact from "./Components/Pages/Contact/Contact";
 
-return null
+const App = () => {
+    return (
+        <>
+        <HashRouter>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/search" element={<Search/>}/>
+                <Route path="/favourites" element={<Favourites/>}/>
+                <Route path="/contact" element={<Contact/>}/>
+            </Routes>
+        </HashRouter>
+        </>
+    );
+
 }
 
 export default App;
