@@ -1,6 +1,7 @@
-@use "./variables.scss";
-
-@use "../../Components/Layouts/Header/header.scss";
-@use "../../Components/Layouts/Footer/footer.scss";
-@use "../../Components/Pages/Home/home.scss";
-@use "../../Components/Pages/Search/search";
+@import "reset";
+@import "variables.scss";
+@import "../../Components/Layouts/Header/header.scss";
+@import "../../Components/Layouts/Footer/footer.scss";
+@import "../../Components/Pages/Home/home.scss";
+@import "../../Components/Pages/Search/search";
+@import "../../Components/Pages/Favourites/favourites";

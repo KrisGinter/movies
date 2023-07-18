@@ -1,0 +1,45 @@
+@use "../../../Assets/Styles/variables.scss";
+
+.favourites__container {
+  min-height: 67vh;
+}
+
+.favourites__headline {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 100vw;
+  h1 {
+    text-align: center;
+  }
+}
+
+.favourites__display__container{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+.favourites__details {
+  max-width: 185px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favourites__title {
+  font-size: 16px;
+}
+
+.button_remove {
+  padding: 5px 60px;
+  margin-top: 5px;
+}
+
+.favourites__poster {
+  height: 280px;
+  width: 185px;
+}

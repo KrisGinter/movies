@@ -7,13 +7,14 @@ const SearchField = () => {
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [titleDetails, setTitleDetails] = useState([])
+    const [favourites, setFavourites] = useState([]);
 
 
 
     const handleSearch = () => {
         const apiKey = 'E1pn6G0f4xL5kwMux4bjDlLUzv02lBB1EgI4gt1U';
         setTitleDetails([]);
-        fetch(`https://api.watchmode.com/v1/search/?apiKey=${apiKey}&search_field=name&search_value=${searchValue}`)
+        fetch(`https://api.watchmode.com/v1/search/?apiKey=${apiKey}&search_field=name&search_value=${searchValue}&sort_by=relevance_desc`)
             .then(response => response.json())
             .then(data => {
                 setSearchResults(data.title_results);
@@ -52,8 +53,8 @@ const SearchField = () => {
         }
 
         function extractVideoID(url) {
-            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-            var match = url.match(regExp);
+            const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+            const match = url.match(regExp);
 
             if (match && match[7] && match[7].length === 11) {
                 return match[7];
@@ -63,13 +64,13 @@ const SearchField = () => {
             }
         }
 
-        var videoID = extractVideoID(url);
+        const videoID = extractVideoID(url);
         if (!videoID) {
             console.error("Invalid YouTube URL");
             return null;
         }
 
-        var embedLink = "https://www.youtube.com/embed/" + videoID;
+        const embedLink = "https://www.youtube.com/embed/" + videoID;
         return embedLink;
     }
 
@@ -83,6 +84,40 @@ const SearchField = () => {
                 <p key={e}>{e}</p>
             ))
         );
+    }
+
+    function addToFavourites() {
+        const newFavourite = {
+            title: titleDetails.title,
+            poster: titleDetails.poster,
+            ranking: titleDetails.user_rating
+        };
+
+        const isDuplicate = favourites.some(
+            (favourite) => favourite.title === newFavourite.title
+        );
+
+        if (isDuplicate) {
+            console.log('Title is already in favourites');
+            return;
+        }
+
+        setFavourites([...favourites, newFavourite]);
+
+        const existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+
+        const isDuplicateInStorage = existingFavourites.some(
+            (favourite) => favourite.title === newFavourite.title
+        );
+
+        if (isDuplicateInStorage) {
+            console.log('Title is already in localStorage');
+            return;
+        }
+
+        const updatedFavourites = [...existingFavourites, newFavourite];
+
+        localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
     }
 
 
@@ -129,9 +164,11 @@ const SearchField = () => {
                 <div className="sources">
                     <h2>Available on:</h2>
                     {filterStreams(titleDetails.sources)}
-                </div>) : ( <div className="sources">
+                </div>)
+                    : ( <div className="sources">
                     <h2>Not available on streaming platforms</h2>
                 </div>)}
+                <button className="button button__favourites" onClick={addToFavourites}>Add to favourites</button>
             </div> )}
         </>
     );

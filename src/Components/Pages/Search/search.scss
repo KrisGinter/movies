@@ -10,12 +10,14 @@
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  margin-top: 20px;
 }
 
 .column__list li {
   font-size: 20px;
   width: 33%;
   font-family: variables.$text-bold;
+  line-height: 25px;
   @media screen and (max-width: 900px) {
     width: 50%;
   }
@@ -64,15 +66,23 @@
 
 .search__headline {
   margin-bottom: 10px;
+  margin-top: 40px;
   font-size: 40px;
+  font-family: variables.$text-bold;
 }
 
 .search__result {
   width: 90vw;
+  margin-top: 40px;
+  line-height: 25px;
+  position: relative;
+  text-align: center;
   h1 {
     font-size: 40px;
     text-align: center;
     font-family: variables.$text-bold;
+    margin-bottom: 20px;
+    line-height: 45px;
   }
 }
 
@@ -95,7 +105,7 @@
 
 .search__details {
   text-align: center;
-  line-height: 5px;
+  line-height: 25px;
 }
 
 .sources {
@@ -104,11 +114,21 @@
   text-align: center;
   justify-content: center;
   gap: 10px;
+  margin-top: 20px;
   p {
-    margin-top: 28px;
+    margin-top: 2px;
+  }
+  h2 {
+    font-family: variables.$text-bold;
+    font-size: 20px;
   }
 }
 
 .plot {
   text-align: center;
+}
+
+.button__favourites {
+padding: 10px 20px;
+  margin-top: 20px;
 }
