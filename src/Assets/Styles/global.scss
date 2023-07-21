@@ -1,8 +1,11 @@
 @use "./variables.scss";
 
 .container {
-  width: 1352px;
+  width: 90vw;
   margin: auto;
+  @media (max-width: 767px) {
+      width: 100%;
+    }
 }
 
 body {
@@ -24,4 +27,10 @@ body {
   font-family: variables.$text-bold;
   border-radius: 20px;
   border: none;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.button:hover{
+  background-color: scale-color(variables.$color-primary, $lightness: -12%);
 }

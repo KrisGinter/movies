@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../../Layouts/Header/header";
 import Footer from "../../Layouts/Footer/footer";
+import Stars from "../../../Assets/Images/Stars.png"
 
 
 const SearchField = () => {
@@ -8,6 +9,7 @@ const SearchField = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [titleDetails, setTitleDetails] = useState([])
     const [favourites, setFavourites] = useState([]);
+
 
 
 
@@ -21,6 +23,7 @@ const SearchField = () => {
                 console.log(data);
             })
             .catch(error => console.error('Error:', error));
+
     };
 
     const fetchTitleDetails = (e) => {
@@ -40,9 +43,9 @@ const SearchField = () => {
                     });
             };
 
-    useEffect(() => {
-        console.log('Updated Title Details:', titleDetails);
-    }, [titleDetails]);
+    // useEffect(() => {
+    //     console.log('Updated Title Details:', titleDetails);
+    // }, [titleDetails]);
 
     const isInputEmpty = searchValue.trim() === ''
 
@@ -151,6 +154,7 @@ const SearchField = () => {
                 <div className="search__details">
                     <p>Year: {titleDetails.year}</p>
                     <p>Rating: {titleDetails.user_rating}</p>
+                    <img className="search__stars" style={{width: `${titleDetails.user_rating * 22}px`}} src={Stars} alt="stars"/>
                     <p>Plot:</p>
                 </div>
                 <p className="plot">{titleDetails.plot_overview}</p>

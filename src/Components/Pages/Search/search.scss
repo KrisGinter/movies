@@ -18,6 +18,7 @@
   width: 33%;
   font-family: variables.$text-bold;
   line-height: 25px;
+  cursor: pointer;
   @media screen and (max-width: 900px) {
     width: 50%;
   }
@@ -131,4 +132,11 @@
 .button__favourites {
 padding: 10px 20px;
   margin-top: 20px;
+}
+
+.search__stars {
+  object-fit: cover;
+  object-position: left;
+
+  height: 20px;
 }

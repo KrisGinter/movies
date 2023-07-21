@@ -39,7 +39,8 @@ const FavouritesDisplay = () => {
         localStorage.getItem('favourites') === null || localStorage.getItem('favourites') === "[]" ?
             (<div className="container favourites__container">
                 <div className="favourites__headline">
-                    <h1 style={{paddingTop: "210px"}}>You have no favourites added yet.</h1>
+                    <h1 style={{paddingTop: "150px"}}>You have no favourites added yet.</h1>
+                    <p>To add titles to your favourites go to Search section, find the title then add it to your favourites</p>
                 </div>
             </div>) :
             (
